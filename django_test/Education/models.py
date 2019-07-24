@@ -16,14 +16,21 @@ class School(models.Model):
 	name = models.CharField(max_length=100)
 	latitude = models.IntegerField()
 	longitude = models.IntegerField()
+	address = models.CharField(max_length=100, default='')
 
 class Person(models.Model):
 	name = models.CharField(max_length=100)
-	school = models.ForeignKey(School, on_delete=models.CASCADE)
+	school = models.ForeignKey(School, on_delete=models.CASCADE,)
+
 
 class Class(models.Model):
 	name = models.CharField(max_length=100)
 	school = models.ForeignKey(School, on_delete=models.CASCADE)
+
+class Teacher(Person):
+	user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+	class_name = models.OneToOneField(Class, on_delete=models.CASCADE, null=True)
+	image = models.ImageField(default='default.jpg',upload_to='profile_pics')
 
 class Student(Person):
 	class_name = models.ForeignKey(Class, on_delete=models.CASCADE)

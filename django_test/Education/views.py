@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Post
-mapbox_access_token = 'pk.eyJ1IjoicTUzNjc3NjEwIiwiYSI6ImNqeWdvZnk3NjAzOG0zYm8wbWcycXJ6ZmsifQ.qJRHm8_RkqqT5rc-EaFW6g'
+mapbox_access_token = 'Please find your location'
 # Create your views here.
 def home(request):
     context = {

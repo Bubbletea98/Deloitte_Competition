@@ -87,3 +87,13 @@ a.article-title:hover {
   width:720px; 
   height:480px; 
 }  
+
+.marker {
+  color: #fff;
+  padding: 4px 10px;
+  white-space: nowrap;
+  font-size: 12px;
+  font-family: "";
+  background-color: #25A5F7;
+  border-radius: 3px;
+}

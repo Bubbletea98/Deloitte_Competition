@@ -10,16 +10,39 @@
     <div id="container"></div>
     <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=b9274206b52477807a4bc0744ff2e15a"></script>  
     <script>
-        var center  =[108.8907, 34.2236]
-        var marker = new AMap.Marker({
-          position:center//位置
-        })
-        var map = new AMap.Map('container', {
-        resizeEnable: true, //是否监控地图容器尺寸变化
-        zoom:15, //初始化地图层级
-        center: center //初始化地图中心点
+    	/* jshint ignore:start */
+    	var map = new AMap.Map('container', {
+	        resizeEnable: true, //是否监控地图容器尺寸变化
+	        zoom:15, //初始化地图层级
+	        center: [116.391467, 39.927761] //初始化地图中心点
         });
-        map.add(marker)
+
+    	activeIcons = [];
+    	var mapClick = function(e){
+    		activeIcons.forEach(function(icon){
+    			icon.setLabel({})
+    		})
+    		activeIcons = []
+    	}
+
+    	map.on('click', mapClick)
+    	{% for school in schools %}
+    		var center  =[{{school.latitude}}, {{school.longitude}}]
+    		var onclickFunction = function(e){
+    			e.target.setLabel({
+    				offset: new AMap.Pixel(20, -30),
+    				content: "<div class='marker'>{{school.name}} </br> {{school.address}}</div>"
+    			})
+    			activeIcons.push(e.target)
+    		}
+
+
+	        var marker = new AMap.Marker({
+	          position:center//位置
+	        });
+	        marker.on('click', onclickFunction)
+	        map.add(marker)
+		{% endfor %}
     </script>
   </body>
 {%endblock content %}

@@ -40,8 +40,21 @@ class Teacher(Person):
 class Student(Person):
 	class_name = models.ForeignKey(Class, on_delete=models.CASCADE)
 
+class LearningType(models.Model):
+	name = models.CharField(max_length=100, default='')
+
+# Class manage the learning status for a given area of study of a student
 class Learning(models.Model):
 	student = models.ForeignKey(Student, on_delete=models.CASCADE)
+	ability = models.IntegerField(default=0)
+	estimation = models.FloatField(default=0)
+	MaxAbility = models.IntegerField(default=10)
+	learningType = models.ForeignKey(LearningType, on_delete=models.CASCADE, null=True)
+
+class Problem(models.Model):
+	difficulty = models.IntegerField()
+	isCorrect = models.BooleanField()
+	learning = models.ForeignKey(Learning, on_delete=models.CASCADE, related_name='problems')
 
 class MovableResource(models.Model):
 	name = models.CharField(max_length=100)

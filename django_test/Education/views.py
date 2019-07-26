@@ -65,3 +65,9 @@ def about(request):
 	return render(request,'Education/Map.html',
     	{'title':'Map',
     	'schools': schools})
+
+def studentManagement(request):
+    print(request.user)
+    return render(request,'Education/studentManagement.html',
+    	{'title':'studentManagement',
+    	'user': request.user})

@@ -13,7 +13,7 @@
     	/* jshint ignore:start */
     	var map = new AMap.Map('container', {
 	        resizeEnable: true, //是否监控地图容器尺寸变化
-	        zoom:15, //初始化地图层级 
+	        zoom:15, //初始化地图层级
 	        center: [116.391467, 39.927761] //初始化地图中心点
         });
 
@@ -30,7 +30,7 @@
     		var center  =[{{school.latitude}}, {{school.longitude}}]
     		var onclickFunction = function(e){
     			e.target.setLabel({
-    				offset: new AMap.Pixel(20, -30),
+    				offset: new AMap.Pixel(20, -30), //20,-30
     				content: "<div class='marker'>{{school.name}} </br> {{school.address}}</div>"
     			})
     			activeIcons.push(e.target)

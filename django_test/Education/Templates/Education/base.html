@@ -35,6 +35,7 @@
                 <a class="nav-item nav-link" href="{%url 'post-create'%}">New Post</a>
                 <a class="nav-item nav-link" href="{%url 'profile'%}">Profile</a>
                 <a class="nav-item nav-link" href="{%url 'logout'%}">Logout</a>
+                <a class="nav-item nav-link" href="{%url 'student-management'%}">Student Management</a>
                 {% else %}
                 <a class="nav-item nav-link" href="{%url 'login'%}">Login</a>
                 <a class="nav-item nav-link" href="{%url 'register'%}">Register</a>
@@ -46,12 +47,12 @@
       </header>
       <main role="main" class="container">
          <div class="row">
-          <div class="col-md-8">
+           <div class="col-sm-8">
              {% block content %}{% endblock %}
            </div>
-               <!--<div class="col-md-4">
+          <!-- <div class="col-md-4">
              <div class="content-section">
-            This code makes a paragraph <h3>Our Sidebar</h3>
+               <h3>Our Sidebar</h3>
                <p class='text-muted'>You can put any information here you'd like.
                  <ul class="list-group">
                    <li class="list-group-item list-group-item-light">Latest Posts</li>

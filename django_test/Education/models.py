@@ -19,8 +19,8 @@ class Post(models.Model):
 
 class School(models.Model):
 	name = models.CharField(max_length=100)
-	latitude = models.FloatField()
-	longitude = models.FloatField()
+	latitude = models.FloatField(default=116.391467)
+	longitude = models.FloatField(default=39.927761)
 	address = models.CharField(max_length=100, default='')
 
 class Person(models.Model):

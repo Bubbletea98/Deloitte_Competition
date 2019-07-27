@@ -6,24 +6,41 @@
 
 @font-face {
   font-family: Roboto-Regular;
+<<<<<<< HEAD
   src: url('../fonts/roboto/Roboto-Regular.ttf');
+=======
+  src: url('../fonts/roboto/Roboto-Regular.ttf'); 
+>>>>>>> 2ff8c21d22fbe8e5172879aca713b57c391e01be
 }
 
 @font-face {
   font-family: Roboto-Medium;
+<<<<<<< HEAD
   src: url('../fonts/roboto/Roboto-Medium.ttf');
+=======
+  src: url('../fonts/roboto/Roboto-Medium.ttf'); 
+>>>>>>> 2ff8c21d22fbe8e5172879aca713b57c391e01be
 }
 
 @font-face {
   font-family: Roboto-Bold;
+<<<<<<< HEAD
   src: url('../fonts/roboto/Roboto-Bold.ttf');
+=======
+  src: url('../fonts/roboto/Roboto-Bold.ttf'); 
+>>>>>>> 2ff8c21d22fbe8e5172879aca713b57c391e01be
 }
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 * {
+<<<<<<< HEAD
 	margin: 0px;
 	padding: 0px;
+=======
+	margin: 0px; 
+	padding: 0px; 
+>>>>>>> 2ff8c21d22fbe8e5172879aca713b57c391e01be
 	box-sizing: border-box;
 }
 
@@ -303,3 +320,9 @@ th, td {
 .table100.ver1 tr {
   border-bottom: 1px solid #f2f2f2;
 }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 2ff8c21d22fbe8e5172879aca713b57c391e01be

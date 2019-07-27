@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from .models import Post
 from .models import School
+from .models import Student
+from django.http import HttpResponseRedirect
+from .form import NameForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import (
 ListView,
@@ -67,13 +70,33 @@ def about(request):
     	'schools': schools})
 
 def studentManagement(request):
-    print(request.user)
+    form = NameForm()
     return render(request,'Education/studentManagement.html',
     	{'title':'studentManagement',
-    	'user': request.user})
+    	'user': request.user,
+        'form': form})
 
 def Management_detail(request):
     print(request.user)
     return render(request,'Education/Management_detail.html',
            {'title':'Management_detail',
            'user': request.user})
+
+def addStudent(request):
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = NameForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            student = Student()
+            student.class_name = request.user.teacher.class_name
+            student.name = form.your_name
+            student.school = request.user.teacher.name
+            student.save()
+            return HttpResponseRedirect('/students/')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = NameForm()
+        return HttpResponseRedirect('/students/')
+

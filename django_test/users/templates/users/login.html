@@ -5,21 +5,21 @@
         <<form method="POST" >
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class ="border-bottom mb-4"> Log In 登陆</legend>
+                <legend class ="border-bottom mb-4"> 登陆</legend>
 
                 {{ form|crispy }}
 
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Login 登陆</button>
-            
+                <button class="btn btn-outline-info" type="submit">登陆</button>
+
             </div>
         </form>
         <div class="border-top pt-3">
 
             <small class="text-muted">
-              Need An Account? 没有账户？
-              <a class="ml-2" href="{% url 'register' %}">Sign Up Now 现在就注册</a>
+              没有账户？
+              <a class="ml-2" href="{% url 'register' %}">现在就注册</a>
 
             </small>
 

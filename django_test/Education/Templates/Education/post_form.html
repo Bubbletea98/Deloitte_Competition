@@ -5,13 +5,13 @@
         <form method="POST" >
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class ="border-bottom mb-4"> Communication Zone</legend>
+                <legend class ="border-bottom mb-4"> 讨论区 </legend>
 
                 {{ form|crispy }}
 
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Submit</button>
+                <button class="btn btn-outline-info" type="submit"> 提交 </button>
             </div>
         </form>
     </div>

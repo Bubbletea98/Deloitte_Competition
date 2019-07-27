@@ -8,37 +8,37 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <link rel="stylesheet" type="text/css" href="{% static 'Education/main.css' %}">
+
     {% if title %}
-        <title>Education Assistant-{{title}}</title>
+        <title>教师小助手-{{title}}</title>
     {% else %}
-        <title>Education Assistant </title>
+        <title>教师小助手</title>
     {% endif %}
   </head>
   <body>
       <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
           <div class="container">
-            <a class="navbar-brand mr-4" href="{%url 'home-page'%}">Education Assistant</a>
+            <a class="navbar-brand mr-4" href="{%url 'home-page'%}"> 教师小助手  </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarToggle">
               <div class="navbar-nav mr-auto">
-                <a class="nav-item nav-link" href=" {%url 'home-page'%}">Home</a>
-                <a class="nav-item nav-link" href="{%url 'home-map'%}">Map</a>
+                <a class="nav-item nav-link" href=" {%url 'home-page'%}">首页</a>
+                <a class="nav-item nav-link" href="{%url 'home-map'%}">地图 📍</a>
               </div>
               <!-- Navbar Right Side -->
               <div class="navbar-nav">
                 {% if user.is_authenticated %}
-                <a class="nav-item nav-link" href="{%url 'post-create'%}">New Post</a>
-                <a class="nav-item nav-link" href="{%url 'profile'%}">Profile</a>
-                <a class="nav-item nav-link" href="{%url 'logout'%}">Logout</a>
-                <a class="nav-item nav-link" href="{%url 'student-management'%}">Student Management</a>
+                <a class="nav-item nav-link" href="{%url 'post-create'%}">新帖子 ✍️</a>
+                <a class="nav-item nav-link" href="{%url 'profile'%}">个人简介 👤</a>
+                <a class="nav-item nav-link" href="{%url 'logout'%}">退出登陆 🚪</a>
+                <a class="nav-item nav-link" href="{%url 'student-management'%}">学生管理 📈</a>
                 {% else %}
-                <a class="nav-item nav-link" href="{%url 'login'%}">Login</a>
-                <a class="nav-item nav-link" href="{%url 'register'%}">Register</a>
+                <a class="nav-item nav-link" href="{%url 'login'%}">登陆</a>
+                <a class="nav-item nav-link" href="{%url 'register'%}">注册</a>
                 {% endif %}
               </div>
             </div>

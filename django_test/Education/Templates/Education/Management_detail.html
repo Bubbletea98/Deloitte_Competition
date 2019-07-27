@@ -2,15 +2,15 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <div class="content-section">
-        <form method="POST" >
+        <form method="POST" method="post">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class ="border-bottom mb-4"> Infomation Form</legend>
+                <legend class ="border-bottom mb-4"> 信息表格</legend>
                 {{ form|crispy }}
 
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Submit</button>
+                <button class="btn btn-outline-info" type="submit">提交</button>
             </div>
         </form>
     </div>

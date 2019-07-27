@@ -5,6 +5,7 @@ from .forms import UserRegisterForm,UserUpdateForm,ProfileUpdateForm
 from django.contrib.auth.models import User
 from Education.models import Teacher
 from Education.models import School
+from Education.models import Class
 
 
 
@@ -16,8 +17,29 @@ def register (request):
             username= form.cleaned_data.get('username')
             messages.success(request,f'Account created for {username}!')
             user = User.objects.get(username = username)
-            teacher = Teacher(name = username)
-            teacher.school = School.objects.get(pk=1)
+            name = form.cleaned_data.get('name')
+            school_name = form.cleaned_data.get('school_name')
+            school_address = form.cleaned_data.get('school_address')
+            class_name = form.cleaned_data.get('class_name')
+
+            teacher = Teacher(name = name)
+            schools = list(School.objects.filter(name=school_name, address=school_address))
+            if(len(schools) > 0):
+                teacher.school = schools[0]
+                school = schools[0]
+            else:
+                school = School(name=school_name, address=school_address)
+                school.save()
+                teacher.school = school
+            
+            classes = school.class_set.filter(name=class_name)
+            if(len(classes) > 0):
+                teacher.class_name = classes[0]
+            else:
+                cl = Class(name=class_name)
+                cl.school = school
+                cl.save()
+                teacher.class_name = cl
             teacher.user = user
             teacher.save()
             return redirect('home-page')

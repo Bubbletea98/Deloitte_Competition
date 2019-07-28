@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from .models import Post
 from .models import School
 from .models import Student
 from django.http import HttpResponseRedirect
 from .form import NameForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.models import User
 from django.views.generic import (
 ListView,
 DetailView,
@@ -27,6 +28,15 @@ class PostListView(ListView):
     template_name = 'Education/home.html' #<app>/<model>_<viewtype>.html
     context_object_name ='posts'
     ordering =['-date_posted'] #from latest to oldest
+
+class UserPostListView(ListView):
+    model =Post
+    template_name = 'Education/user_posts.html' #<app>/<model>_<viewtype>.html
+    context_object_name ='posts'
+    ordering =['-date_posted'] #from latest to oldest
+    def get_query_set(self):
+        user= get_object_or_404(User, username=self.kwargs.get('username'))
+        return Post.objects.filter(Teacher=user).order_by('-date_posted')
 
 class PostDetailView(DetailView):
     model = Post
@@ -99,4 +109,3 @@ def addStudent(request):
     else:
         form = NameForm()
         return HttpResponseRedirect('/students/')
-

@@ -1,17 +1,90 @@
 {%extends "Education/base.html"%}
 {% load crispy_forms_tags %}
-{% block content %}
+{% block content%}
+{% load static %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" type="text/css" href="{% static 'Education/main.css' %}">
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{% static 'Education/main.css' %}">
+
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!--===============================================================================================-->
+
     <div class="content-section">
         <form method="POST" method="post">
             {% csrf_token %}
+
             <fieldset class="form-group">
-                <legend class ="border-bottom mb-4"> 信息表格</legend>
                 {{ form|crispy }}
 
+                         <h3>=======================</h3>
+                         <h6>========================</h6>
+                          <h3> 能力分析</h3>
+                          <div class="wrap-table100">
+                            <div class="table100 ver1">
+                              <div class="table100-firstcol">
+
+                                 <div style="padding-down: 20px;">
+                                <table>
+                                  <thead>
+                                    <tr class="row100 head">
+                                      <th class="cell100 column1"> 学生</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {% for student in user.teacher.class_name.student_set.all %}
+                                      <tr class="row100 body">
+                                        <td class="cell100 column1">{{student.name}}</td>
+                                      </tr>
+                                    {% endfor %}
+
+                                  </tbody>
+                                </table>
+                              </div>
+                              </div>
+
+                              <div class="wrap-table100-nextcols js-pscroll">
+                                <div class="table100-nextcols">
+                                   <div style="padding-down: 40px;">
+                                  <table>
+                                    <thead>
+                                      <tr class="row100 head">
+                                        <th class="cell100 column2">学号</th>
+                                        <th class="cell100 column3">成绩</th>
+                                        <th class="cell100 column4">能力强项</th>
+                                        <th class="cell100 column5">能力弱项</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      {% for student in user.teacher.class_name.student_set.all %}
+                                        <tr class="row100 body">
+                                          <td class="cell100 column2">{{student.name}}</td>
+                                          <td class="cell100 column3">{{student.class_name.name}}</td>
+                                          <td class="cell100 column4">action</td>
+                                          <td class="cell100 column5">detail</td>
+                                        </tr>
+                                      {% endfor %}
+                                    </tbody>
+                                  </table>
+                                </div>
+                                </div>
+                              </div>
+                            </div>
+                      </div>
             </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">提交</button>
-            </div>
         </form>
     </div>
 {%endblock content %}

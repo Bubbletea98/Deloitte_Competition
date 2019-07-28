@@ -27,15 +27,17 @@
 <div class="media">
 <header class="site-header">
 <div class="container">
+  <h3>==========================================</h3>
+  <h6>==========================================</h6>
 
-  <h2 class="account-heading" >{{user.username}}</h2>
   <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
   {% if user.teacher != null%}
   <font face="微软雅黑">
-    <h2 class="account-heading" >{{user.teacher.name}}</h2>
-    <h3 class="acount-content"> 学校: {{user.teacher.school.name}}</h3>
-    <h3 class="acount-content"> 学校地址: {{user.teacher.school.address}}</h3>
-    <h3 class="acount-content"> 班级: {{user.teacher.class_name.name}}</h3>
+    <h3 class="account-heading" >{{user.username}}</h3>
+    <h4 class="account-content" >{{user.teacher.name}}</h4>
+    <p class="acount-content"> 学校: {{user.teacher.school.name}}</p>
+    <p class="acount-content"> 学校地址: {{user.teacher.school.address}}</p>
+    <p class="acount-content"> 班级: {{user.teacher.class_name.name}}</p>
 </font>
   {% endif %}
   <p class="text-secondary">{{user.email}}</p>
@@ -46,7 +48,7 @@
 
     <fieldset class="form-group">
 
-        <legend class ="border-bottom mb-4"> 学生信息 </legend>
+        <legend class ="border-bottom mb-6"> 学生信息 </legend>
 
               <div class="wrap-table100">
                 <div class="table100 ver1">
@@ -67,6 +69,7 @@
                       </tbody>
                     </table>
                   </div>
+
                   <div class="wrap-table100-nextcols js-pscroll">
                     <div class="table100-nextcols">
                       <table>
@@ -98,7 +101,8 @@
     <form action='/student/update' method="post">
         <h3>添加学生</h3>
             {{ form|crispy }}
-          <button class='btn btn-outline-info' type="submit"><strong>添加</strong></button>
+        <button class='btn btn-outline-info' type="submit"><strong>添加</strong></button>
+
     </form>
 </div>
 

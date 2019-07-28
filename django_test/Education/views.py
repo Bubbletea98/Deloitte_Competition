@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404, redirect
 from .models import Post
 from .models import School
 from .models import Student
@@ -100,12 +100,20 @@ def addStudent(request):
         if form.is_valid():
             student = Student()
             student.class_name = request.user.teacher.class_name
-            student.name = form.your_name
-            student.school = request.user.teacher.name
+            student.name = form.cleaned_data.get('name')
+            student.school = request.user.teacher.school
             student.save()
-            return HttpResponseRedirect('/students/')
+            return redirect('/students/')
 
     # if a GET (or any other method) we'll create a blank form
     else:
         form = NameForm()
-        return HttpResponseRedirect('/students/')
+        return redirect('/students/')
+
+# delete a student
+def deleteStudent(request, pk):
+    try:
+        Student.objects.get(pk=pk).delete()
+    except:
+        return redirect('/students/')
+    return redirect('/students/')

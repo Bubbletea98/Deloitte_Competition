@@ -88,7 +88,7 @@
                               <td class="cell100 column2">{{student.name}}</td>
                               <td class="cell100 column3">{{student.class_name.name}}</td>
                               <td class="cell100 column4">action</td>
-                              <td class="cell100 column5">detail</td>
+                              <td class="cell100 column5"><a class="btn-danger" href="/students/delete/{{student.pk}}">删除</a></td>
                             </tr>
                           {% endfor %}
                         </tbody>
@@ -98,7 +98,8 @@
                 </div>
           </div>
     </fieldset>
-    <form action='/student/update' method="post">
+    <form action="{%url 'add_student'%}" method="POST">
+        {% csrf_token %}
         <h3>添加学生</h3>
             {{ form|crispy }}
         <button class='btn btn-outline-info' type="submit"><strong>添加</strong></button>

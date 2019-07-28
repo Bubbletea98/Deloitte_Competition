@@ -7,7 +7,7 @@
 <div class="media-body">
   <h2 class="account-heading">{{user.username}}</h2>
   {% if user.teacher != null%}
-    <h2 class="account-heading">{{user.teacher.name}}</h2>
+    <h2 class="account-content">{{user.teacher.name}}</h2>
     <h3 class="acount-content"> {{user.teacher.school.name}}</h3>
     <h3 class="acount-content"> {{user.teacher.school.address}}</h3>
   {% endif %}

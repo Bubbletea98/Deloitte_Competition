@@ -1,26 +1,16 @@
 {%extends "Education/base.html"%}
 {% load crispy_forms_tags %}
-<<<<<<< HEAD
 {% block content%}
-{%load static%}
-<font face="微软雅黑">
+{% load static %}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-=======
-{%block content%}
-{%load static%}
->>>>>>> 2ff8c21d22fbe8e5172879aca713b57c391e01be
 
 <link rel="stylesheet" type="text/css" href="{% static 'Education/main.css' %}">
 <!--===============================================================================================-->
 <!--===============================================================================================-->
-<<<<<<< HEAD
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="{% static 'Education/main.css' %}">
 
-=======
-  <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
->>>>>>> 2ff8c21d22fbe8e5172879aca713b57c391e01be
 <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap.min.css' %}">
@@ -55,70 +45,49 @@
 </div>
 
     <fieldset class="form-group">
-<<<<<<< HEAD
+
         <legend class ="border-bottom mb-4"> 学生信息 </legend>
-=======
-        <legend class ="border-bottom mb-4"> Students Info </legend>
->>>>>>> 2ff8c21d22fbe8e5172879aca713b57c391e01be
+
               <div class="wrap-table100">
                 <div class="table100 ver1">
                   <div class="table100-firstcol">
                     <table>
                       <thead>
                         <tr class="row100 head">
-<<<<<<< HEAD
                           <th class="cell100 column1"> 学生</th>
-=======
-                          <th class="cell100 column1">Students</th>
->>>>>>> 2ff8c21d22fbe8e5172879aca713b57c391e01be
                         </tr>
                       </thead>
                       <tbody>
-                        {%for student in user.teacher.class_name.student_set.all%}
+                        {% for student in user.teacher.class_name.student_set.all %}
                           <tr class="row100 body">
                             <td class="cell100 column1">{{student.name}}</td>
                           </tr>
-                        {%endfor%}
-<<<<<<< HEAD
+                        {% endfor %}
 
                       </tbody>
                     </table>
                   </div>
-
-=======
-                        
-                      </tbody>
-                    </table>
-                  </div>
-                  
->>>>>>> 2ff8c21d22fbe8e5172879aca713b57c391e01be
                   <div class="wrap-table100-nextcols js-pscroll">
                     <div class="table100-nextcols">
                       <table>
                         <thead>
+
                           <tr class="row100 head">
-<<<<<<< HEAD
                             <th class="cell100 column2">学号</th>
                             <th class="cell100 column3">班级</th>
                             <th class="cell100 column4">详细说明</th>
                             <th class="cell100 column5">删除</th>
-=======
-                            <th class="cell100 column2">Number</th>
-                            <th class="cell100 column3">Class</th>
-                            <th class="cell100 column4">Detail</th>
-                            <th class="cell100 column5">Delete</th>
->>>>>>> 2ff8c21d22fbe8e5172879aca713b57c391e01be
                           </tr>
                         </thead>
                         <tbody>
-                          {%for student in user.teacher.class_name.student_set.all%}
+                          {% for student in user.teacher.class_name.student_set.all %}
                             <tr class="row100 body">
                               <td class="cell100 column2">{{student.name}}</td>
                               <td class="cell100 column3">{{student.class_name.name}}</td>
                               <td class="cell100 column4">action</td>
                               <td class="cell100 column5">detail</td>
                             </tr>
-                          {%endfor%}
+                          {% endfor %}
                         </tbody>
                       </table>
                     </div>
@@ -132,6 +101,5 @@
           <button class='btn btn-outline-info' type="submit"><strong>添加</strong></button>
     </form>
 </div>
-</font>
 
 {% endblock content %}

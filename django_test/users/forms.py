@@ -23,6 +23,16 @@ class UserRegisterForm (UserCreationForm) :
         required = False,
     )
 
+    lat = forms.FloatField(
+        label = "学校经度（东经）",
+        required = False,
+    )
+
+    longi = forms.FloatField(
+        label = "学校纬度（北纬）",
+        required = False,
+    )
+
     class_name = forms.CharField(
         label = "班级名称",
         max_length = 80,
@@ -32,7 +42,7 @@ class UserRegisterForm (UserCreationForm) :
 
     class Meta :
         model =User
-        fields =['username','email','password1','password2', 'name', 'school_name', 'school_address','class_name']
+        fields =['username','email','password1','password2', 'name', 'school_name', 'school_address','lat', 'longi','class_name']
 
 class UserUpdateForm(forms.ModelForm):
     email =forms.EmailField()

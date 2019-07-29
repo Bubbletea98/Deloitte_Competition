@@ -34,6 +34,7 @@
                 {% if user.is_authenticated %}
                 <a class="nav-item nav-link" href="{%url 'post-create'%}">新帖子 ✍️ </a>
                 <a class="nav-item nav-link" href="{%url 'profile'%}">个人简介 👤 </a>
+                <a class="nav-item nav-link" href="{%url 'student-management'%}">学生管理 📝 </a>
                 <a class="nav-item nav-link" href="{%url 'logout'%}">退出登陆 🚪 </a>
                 {% else %}
                 <a class="nav-item nav-link" href="{%url 'login'%}">登陆</a>

@@ -6,41 +6,24 @@
 
 @font-face {
   font-family: Roboto-Regular;
-<<<<<<< HEAD
   src: url('../fonts/roboto/Roboto-Regular.ttf');
-=======
-  src: url('../fonts/roboto/Roboto-Regular.ttf'); 
->>>>>>> 2ff8c21d22fbe8e5172879aca713b57c391e01be
 }
 
 @font-face {
   font-family: Roboto-Medium;
-<<<<<<< HEAD
   src: url('../fonts/roboto/Roboto-Medium.ttf');
-=======
-  src: url('../fonts/roboto/Roboto-Medium.ttf'); 
->>>>>>> 2ff8c21d22fbe8e5172879aca713b57c391e01be
 }
 
 @font-face {
   font-family: Roboto-Bold;
-<<<<<<< HEAD
   src: url('../fonts/roboto/Roboto-Bold.ttf');
-=======
-  src: url('../fonts/roboto/Roboto-Bold.ttf'); 
->>>>>>> 2ff8c21d22fbe8e5172879aca713b57c391e01be
 }
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 * {
-<<<<<<< HEAD
 	margin: 0px;
 	padding: 0px;
-=======
-	margin: 0px; 
-	padding: 0px; 
->>>>>>> 2ff8c21d22fbe8e5172879aca713b57c391e01be
 	box-sizing: border-box;
 }
 
@@ -206,6 +189,8 @@ th, td {
 .column1 {
   width: 100%;
   padding-left: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px
 }
 
 .column2 {
@@ -310,6 +295,8 @@ th, td {
 
 .table100.ver1 .table100-firstcol td {
   color: #666666;
+  padding-top: 21px;
+  padding-bottom: 21px;
 }
 
 .table100.ver1 .table100-nextcols td {
@@ -320,9 +307,4 @@ th, td {
 .table100.ver1 tr {
   border-bottom: 1px solid #f2f2f2;
 }
-<<<<<<< HEAD
-=======
 
-
-
->>>>>>> 2ff8c21d22fbe8e5172879aca713b57c391e01be

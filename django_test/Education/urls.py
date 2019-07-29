@@ -18,7 +18,10 @@ urlpatterns = [
     path('Map/', views.about, name='home-map'),
     path('students/', views.studentManagement, name='student-management'),
     path('students/update/',views.addStudent, name='add_student'),
-    path('students/delete/<int:pk>', views.deleteStudent, name='remove_student')
+    path('students/delete/<int:pk>', views.deleteStudent, name='remove_student'),
+    path('students/detail/<int:pk>', views.studentDetail, name='student_detail'),
+    path('students/detail/<int:pk>/update', views.addLearning, name='student_update')
+
 ]
 
 # <app>/ <model>_<viewtype>.html

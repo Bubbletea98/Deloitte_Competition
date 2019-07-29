@@ -87,8 +87,8 @@
                             <tr class="row100 body">
                               <td class="cell100 column2">{{student.name}}</td>
                               <td class="cell100 column3">{{student.class_name.name}}</td>
-                              <td class="cell100 column4">action</td>
-                              <td class="cell100 column5"><a class="btn-danger" href="/students/delete/{{student.pk}}">删除</a></td>
+                              <td class="cell100 column4"><a class="btn btn-info btn-sm" href="/students/detail/{{student.pk}}">详情</a></td>
+                              <td class="cell100 column5"><a class="btn btn-danger btn-sm" href="/students/delete/{{student.pk}}">删除</a></td>
                             </tr>
                           {% endfor %}
                         </tbody>

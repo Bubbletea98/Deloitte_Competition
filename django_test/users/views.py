@@ -21,14 +21,15 @@ def register (request):
             school_name = form.cleaned_data.get('school_name')
             school_address = form.cleaned_data.get('school_address')
             class_name = form.cleaned_data.get('class_name')
-
+            latitude = form.cleaned_data.get('lat')
+            longitude = form.cleaned_data.get('longi')
             teacher = Teacher(name = name)
             schools = list(School.objects.filter(name=school_name, address=school_address))
             if(len(schools) > 0):
                 teacher.school = schools[0]
                 school = schools[0]
             else:
-                school = School(name=school_name, address=school_address)
+                school = School(name=school_name, address=school_address, latitude=latitude, longitude=longitude)
                 school.save()
                 teacher.school = school
             

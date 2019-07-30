@@ -13,7 +13,7 @@
     	/* jshint ignore:start */
     	var map = new AMap.Map('container', {
 	        resizeEnable: true, //是否监控地图容器尺寸变化
-	        zoom:15, //初始化地图层级
+	        zoom:2, //初始化地图层级
 	        center: [116.391467, 39.927761] //初始化地图中心点
         });
 
@@ -26,12 +26,15 @@
     	}
 
     	map.on('click', mapClick)
+        // school object was modified and added a new attribute 'teacher' representing that school before 
+        // the school object is passed to this template
     	{% for school in schools %}
     		var center  =[{{school.latitude}}, {{school.longitude}}]
     		var onclickFunction = function(e){
     			e.target.setLabel({
     				offset: new AMap.Pixel(20, -30), //20,-30
-    				content: "<div class='marker'>{{school.name}} </br> {{school.address}}</div>"
+    				content: "<div class='marker'>{{school.name}} </br> {{school.address}}</div> </br>"+
+                            "<a class='mr-2' href='{% url 'user-posts' school.teacher.user.pk %}'> " +"联系人：{{school.teacher.name}}</a>"
     			})
     			activeIcons.push(e.target)
     		}

@@ -1,6 +1,6 @@
 from django.shortcuts import render,get_object_or_404, redirect
-from .models import Post, School, Student, Learning, Problem
-from django.http import HttpResponseRedirect
+from .models import Post, School, Student, Learning, Problem, Teacher
+from django.http import HttpResponseRedirect, Http404
 from . import personalized_learning
 from .form import NameForm, LearningForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -28,14 +28,16 @@ class PostListView(ListView):
     context_object_name ='posts'
     ordering =['-date_posted'] #from latest to oldest
 
-class UserPostListView(ListView):
-    model =Post
-    template_name = 'Education/user_posts.html' #<app>/<model>_<viewtype>.html
-    context_object_name ='posts'
-    ordering =['-date_posted'] #from latest to oldest
-    def get_query_set(self):
-        user= get_object_or_404(User, username=self.kwargs.get('username'))
-        return Post.objects.filter(Teacher=user).order_by('-date_posted')
+def userPostListView(request, pk):
+	model =Post
+	template_name = 'Education/user_posts.html' #<app>/<model>_<viewtype>.html
+	context_object_name ='posts'
+	ordering =['-date_posted'] #from latest to oldest
+	try: 
+		user= User.objects.get(pk=pk)
+	except:
+		raise Http404('No such user')
+	return render(request, template_name, {'posts': Post.objects.filter(Teacher=user).order_by('-date_posted'), 'user': user})       
 
 class PostDetailView(DetailView):
     model = Post
@@ -74,6 +76,9 @@ class PostDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
 
 def about(request):
 	schools = School.objects.all()
+	for school in schools:
+		teacher = school.person_set.get(student=None);
+		school.teacher = Teacher.objects.get(name=teacher.name, school=teacher.school)
 	return render(request,'Education/Map.html',
     	{'title':'Map',
     	'schools': schools})

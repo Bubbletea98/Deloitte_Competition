@@ -36,7 +36,6 @@
                 <a class="nav-item nav-link" href="{%url 'profile'%}">个人简介 👤</a>
                 <a class="nav-item nav-link" href="{%url 'logout'%}">退出登陆 🚪</a>
                 <a class="nav-item nav-link" href="{%url 'student-management'%}">学生管理 📝</a>
-                <a class="nav-item nav-link" href="{%url 'management-detail'%}"> 学生能力分析📈</a>
                 {% else %}
                 <a class="nav-item nav-link" href="{%url 'login'%}">登陆</a>
                 <a class="nav-item nav-link" href="{%url 'register'%}">注册</a>
@@ -50,14 +49,14 @@
          <div class="row">
            <div class="col-md-8">
 {% block content%}
-   <h1 class="mb-3">{{view.kwargs.username}} 发布的帖子</h1>
+   <h1 class="mb-3">{{user.username}} ({{user.teacher.name}}) 发布的帖子</h1>
     {% for post in posts %}
 
         <article class="media content-section">
           <img class="rounded-circle article-img" src="{{ post.Teacher.profile.image.url }}">
           <div class="media-body">
            <div class="article-metadata">
-             <a class="mr-2" href="{% url 'user-posts' post.Teacher.username %}">{{ post.Teacher }}</a>
+             <a class="mr-2" href="{% url 'user-posts' post.Teacher.pk %}">{{ post.Teacher }}</a>
              <small class="text-muted">{{ post.date_posted|date:"F d, Y"}}</small>
 
            </div>

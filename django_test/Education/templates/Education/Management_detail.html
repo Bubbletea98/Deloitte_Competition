@@ -58,14 +58,13 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-  <td>cell1_1</td>
-  <td>cell2_1</td>
-  </tr>
   {% for learning in student.learning_set.all %}
+    <tr>
     <td>{{learning.name}}</td>
     <td>{{learning.ability}}</td>
+    </tr>
   {% endfor %}
+  
   </tbody>
   </table>
 
